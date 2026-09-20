@@ -1,4 +1,4 @@
-# CalorieAI
+# TarelkaAI
 
 An iOS app built with SwiftUI for tracking calories and nutrients: recognizes food from
 photos, scans barcodes, searches a product database, and keeps a food diary synced with
