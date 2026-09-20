@@ -9,12 +9,12 @@ Apple Health.
 ## Screenshots
 
 <p float="left">
-  <img src="docs/onboarding-language.png" width="200" />
-  <img src="docs/onboarding-parameters.png" width="200" />
-  <img src="docs/profile.png" width="200" />
-  <img src="docs/settings.png" width="200" />
-  <img src="docs/about.png" width="200" />
-  <img src="docs/insights.png" width="200" />
+  <img src="screenshots/onboarding-language.png" width="200" />
+  <img src="screenshots/onboarding-parameters.png" width="200" />
+  <img src="screenshots/profile.png" width="200" />
+  <img src="screenshots/settings.png" width="200" />
+  <img src="screenshots/about.png" width="200" />
+  <img src="screenshots/insights.png" width="200" />
 </p>
 
 ## Features
