@@ -1,4 +1,4 @@
-# TarelkaAI
+# CalorieAI
 
 An iOS app built with SwiftUI for tracking calories and nutrients: recognizes food from
 photos, scans barcodes, searches a product database, and keeps a food diary synced with
@@ -6,14 +6,16 @@ Apple Health.
 
 > ⚠️ Set your API key before the first run — see the [Setup](#setup) section.
 
-<!-- Screenshots significantly increase the chance people will check out the repo.
-     Drop 2–3 images into the docs/ folder and uncomment:
+## Screenshots
+
 <p float="left">
-  <img src="docs/screenshot-camera.png" width="240" />
-  <img src="docs/screenshot-log.png"    width="240" />
-  <img src="docs/screenshot-charts.png" width="240" />
+  <img src="docs/onboarding-language.png" width="200" />
+  <img src="docs/onboarding-parameters.png" width="200" />
+  <img src="docs/profile.png" width="200" />
+  <img src="docs/settings.png" width="200" />
+  <img src="docs/about.png" width="200" />
+  <img src="docs/insights.png" width="200" />
 </p>
--->
 
 ## Features
 
