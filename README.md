@@ -1,12 +1,13 @@
 # CalorieAI
 
-iOS-приложение на SwiftUI для подсчёта калорий и нутриентов: распознаёт еду по фотографии,
-сканирует штрихкоды, ищет продукты в базе и ведёт дневник питания с синхронизацией в Apple Health.
+An iOS app built with SwiftUI for tracking calories and nutrients: recognizes food from
+photos, scans barcodes, searches a product database, and keeps a food diary synced with
+Apple Health.
 
-> ⚠️ Перед первым запуском укажи свой API-ключ — см. раздел [Настройка](#настройка).
+> ⚠️ Set your API key before the first run — see the [Setup](#setup) section.
 
-<!-- Скриншоты сильно повышают шанс, что репозиторий посмотрят.
-     Положи 2–3 картинки в папку docs/ и раскомментируй:
+<!-- Screenshots significantly increase the chance people will check out the repo.
+     Drop 2–3 images into the docs/ folder and uncomment:
 <p float="left">
   <img src="docs/screenshot-camera.png" width="240" />
   <img src="docs/screenshot-log.png"    width="240" />
@@ -14,63 +15,63 @@ iOS-приложение на SwiftUI для подсчёта калорий и 
 </p>
 -->
 
-## Возможности
+## Features
 
-- **Три способа добавить еду** — фото, штрихкод, текстовый поиск (единый экран `CameraView`).
-- **Распознавание блюда по фото** — снимок анализируется, возвращаются калории и БЖУ.
-- **Сканер штрихкодов** — данные о продукте подтягиваются из Open Food Facts.
-- **Дневник питания** — приёмы пищи за день, дневная норма и остаток.
-- **Графики и статистика** — динамика калорий и нутриентов по дням.
-- **Анализ дефицитов** — подсветка нутриентов, которых стабильно не хватает.
-- **Apple HealthKit** — обмен данными о питании с приложением «Здоровье».
-- **Стрики и напоминания** — серия дней без пропусков, локальные уведомления.
-- **Рецепты** — подбор блюд под оставшуюся норму калорий.
-- **Онбординг и мультиязычность** — расчёт нормы под пользователя, переключение языка в приложении.
+- **Three ways to log food** — photo, barcode, or text search (all on one `CameraView` screen).
+- **Photo food recognition** — snap a picture, get calories and macros back.
+- **Barcode scanner** — product data pulled from Open Food Facts.
+- **Food diary** — meals logged per day, with daily target and remaining allowance.
+- **Charts and stats** — calorie and nutrient trends over time.
+- **Deficiency analysis** — highlights nutrients you're consistently falling short on.
+- **Apple HealthKit** — syncs nutrition data with the Health app.
+- **Streaks and reminders** — track consecutive logging days with local notifications.
+- **Recipes** — meal suggestions that fit your remaining calorie budget.
+- **Onboarding and multi-language support** — personalized target calculation, in-app language switch.
 
-## Стек
+## Tech Stack
 
 | | |
 |---|---|
 | UI | SwiftUI |
-| Камера / штрихкоды | AVFoundation, UIKit (`UIImagePickerController`) |
-| Здоровье | HealthKit |
-| Уведомления | UserNotifications |
-| Внешние данные | Open Food Facts API |
-| Архитектура | MVVM (`DailyLogViewModel`, `UserViewModel`, сервисы) |
+| Camera / barcodes | AVFoundation, UIKit (`UIImagePickerController`) |
+| Health | HealthKit |
+| Notifications | UserNotifications |
+| External data | Open Food Facts API |
+| Architecture | MVVM (`DailyLogViewModel`, `UserViewModel`, services) |
 
-Минимальные требования: iOS 17+, Xcode 15+.
+Minimum requirements: iOS 17+, Xcode 15+.
 
-## Структура проекта
+## Project Structure
 
 ```
 first-project/
-├── first_projectApp.swift     точка входа
-├── ContentView.swift          корневая навигация
-├── OnboardingView.swift       первый запуск, расчёт нормы калорий
+├── first_projectApp.swift     entry point
+├── ContentView.swift          root navigation
+├── OnboardingView.swift       first launch, calorie target calculation
 │
-├── CameraView.swift           фото / штрихкод / поиск — добавление еды
-├── ChartsView.swift           графики и статистика
-├── Recipe.swift               рецепты
-├── LanguagePickerView.swift   выбор языка
-├── StreakBadge.swift          UI серии дней
+├── CameraView.swift           photo / barcode / search — adding food
+├── ChartsView.swift           charts and stats
+├── Recipe.swift               recipes
+├── LanguagePickerView.swift   language picker
+├── StreakBadge.swift          streak UI
 │
-├── FoodRecognitionService.swift  распознавание блюда по фото
-├── OpenFoodFactsService.swift    поиск продукта по штрихкоду
-├── FoodDatabase.swift            локальная база продуктов
-├── HealthKitService.swift        интеграция с Apple Health
-├── NotificationManager.swift     локальные уведомления
-├── StreakManager.swift           логика серий
+├── FoodRecognitionService.swift  photo-based food recognition
+├── OpenFoodFactsService.swift    barcode product lookup
+├── FoodDatabase.swift            local product database
+├── HealthKitService.swift        Apple Health integration
+├── NotificationManager.swift     local notifications
+├── StreakManager.swift           streak logic
 │
-├── DailyLogViewModel.swift    дневник питания за день
-├── UserViewModel.swift        профиль и цели пользователя
-├── FoodAnalysisResult.swift   модель результата анализа
-├── NutritionDeficiency.swift  анализ дефицита нутриентов
+├── DailyLogViewModel.swift    daily food diary
+├── UserViewModel.swift        user profile and goals
+├── FoodAnalysisResult.swift   analysis result model
+├── NutritionDeficiency.swift  nutrient deficiency analysis
 │
-├── AppLanguage.swift          локализация
-└── Extensions.swift           общие расширения
+├── AppLanguage.swift          localization
+└── Extensions.swift           shared extensions
 ```
 
-## Установка
+## Installation
 
 ```bash
 git clone https://github.com/Klopp-top/CalorieAI.git
@@ -78,38 +79,38 @@ cd CalorieAI
 open CalorieAI.xcodeproj
 ```
 
-Дальше: выбрать симулятор (например, iPhone 17 Pro Max) и нажать ▶.
+Then pick a simulator (e.g. iPhone 17 Pro Max) and hit ▶.
 
-## Настройка
+## Setup
 
-Ключ API в репозиторий не коммитится. Создай файл `first-project/Secrets.swift`
-(он уже в `.gitignore`):
+The API key is not committed to the repo. Create `first-project/Secrets.swift`
+(already in `.gitignore`):
 
 ```swift
 enum Secrets {
-    static let foodRecognitionAPIKey = "ВАШ_КЛЮЧ"
+    static let foodRecognitionAPIKey = "YOUR_KEY"
 }
 ```
 
-и используй его в `FoodRecognitionService`:
+and use it in `FoodRecognitionService`:
 
 ```swift
 let apiKey = Secrets.foodRecognitionAPIKey
 ```
 
-Для работы камеры, галереи и HealthKit в `Info.plist` должны быть описания разрешений:
-`NSCameraUsageDescription`, `NSPhotoLibraryUsageDescription`,
+For the camera, photo library, and HealthKit to work, `Info.plist` needs these usage
+descriptions: `NSCameraUsageDescription`, `NSPhotoLibraryUsageDescription`,
 `NSHealthShareUsageDescription`, `NSHealthUpdateUsageDescription`.
 
-## Статус
+## Status
 
-Проект в активной разработке. Планы:
+Actively in development. Roadmap:
 
-- [ ] Виджет на домашний экран с остатком калорий
-- [ ] Экспорт дневника в CSV
-- [ ] Оффлайн-режим для базы продуктов
-- [ ] Тесты для расчёта нормы калорий и БЖУ
+- [ ] Home screen widget showing remaining calories
+- [ ] Export food diary to CSV
+- [ ] Offline mode for the product database
+- [ ] Tests for calorie/macro target calculations
 
-## Лицензия
+## License
 
-MIT — см. [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).
